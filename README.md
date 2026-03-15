@@ -1,6 +1,6 @@
 # ✍ CoAuthor — Human-AI Collaborative Writing Assistant
 
-> A full-stack AI writing assistant powered by GPT-3.5 Turbo, LangChain, and FAISS — built as a portfolio project for a Master's in Computer Science.
+> A full-stack AI writing assistant powered by GPT-3.5 Turbo, LangChain, and FAISS built as a portfolio project for a Master's in Computer Science.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![React](https://img.shields.io/badge/React-18-61dafb)
@@ -10,7 +10,7 @@
 
 ---
 
-## 📌 Overview
+## Overview
 
 CoAuthor is a collaborative writing tool that pairs a rich text editor with an AI backend to help users:
 
@@ -23,7 +23,7 @@ The backend is built with **Flask + LangChain + OpenAI**, and the frontend is a 
 
 ---
 
-## 🗂 Project Structure
+## Project Structure
 
 ```
 coauthor/
@@ -64,16 +64,16 @@ coauthor/
 |---|---|
 | LLM | GPT-3.5 Turbo (OpenAI API) |
 | Orchestration | LangChain |
-| Vector Store | FAISS (CPU) |
-| Embeddings | OpenAI `text-embedding-ada-002` |
+| Vector Store | FAISS  |
+| Embeddings | OpenAI  |
 | Backend | Flask (Python) |
 | Frontend | React 18 |
 | HTTP Client | Axios |
-| Styling | Custom CSS (no UI library) |
+| Styling | Custom CSS|
 
 ---
 
-## 🚀 Getting Started
+
 
 ### Prerequisites
 
@@ -170,7 +170,7 @@ curl -X POST http://localhost:5000/api/suggest \
 
 ---
 
-## 🧠 How RAG Works
+## How RAG Works
 
 1. **Upload** a `.txt` or `.md` reference document via the sidebar
 2. The backend **chunks** the document using `RecursiveCharacterTextSplitter` (500 tokens, 50 overlap)
@@ -185,17 +185,8 @@ User text → FAISS similarity search → Top-3 chunks → LLM prompt → Sugges
 
 ---
 
-## 💸 Cost Estimate
 
-| Model | Cost | Notes |
-|---|---|---|
-| GPT-3.5 Turbo | ~$0.002 / 1K tokens | A typical session = < $0.10 |
-| text-embedding-ada-002 | ~$0.0001 / 1K tokens | Used only when uploading docs |
-| **Total for a project** | **~$1–5** | New accounts get free credits |
-
----
-
-## 🆓 Free Alternatives
+## Free Alternatives
 
 To run this project **completely free**, replace GPT-3.5 Turbo with one of these:
 
@@ -217,7 +208,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 self.llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
 ```
 
-### Option B: Groq (Free Tier — Very Fast)
+### Option B: Groq (Free Tier)
 
 ```bash
 pip install langchain-groq
@@ -228,7 +219,7 @@ from langchain_groq import ChatGroq
 self.llm = ChatGroq(model="llama3-8b-8192", groq_api_key=os.getenv("GROQ_API_KEY"))
 ```
 
-### Option C: Local Model via Ollama (100% Free, No Internet)
+### Option C: Local Model via Ollama
 
 ```bash
 # Install Ollama: https://ollama.com
@@ -255,17 +246,6 @@ self.llm = ChatOllama(model="llama3")
 - **Quick Actions** — Pre-built prompts: Continue, Improve, Expand, Shorten, Creative, Formal
 - **Word/Char Counter** — Live stats in the editor footer
 - **Session Isolation** — Each browser tab gets its own UUID-based vector store session
-
----
-
-## 🧩 Potential Extensions
-
-- [ ] Export document as `.docx` or `.pdf`
-- [ ] Multi-document RAG support
-- [ ] User authentication + document persistence (PostgreSQL)
-- [ ] Streaming responses for faster perceived latency
-- [ ] Tone analyzer / readability score
-- [ ] Version history / undo suggestions
 
 ---
 
