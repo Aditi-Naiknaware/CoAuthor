@@ -1,4 +1,4 @@
-# ✍ CoAuthor — Human-AI Collaborative Writing Assistant
+# CoAuthor — Human-AI Collaborative Writing Assistant
 
 > A full-stack AI writing assistant powered by GPT-3.5 Turbo, LangChain, and FAISS built as a portfolio project for a Master's in Computer Science.
 
@@ -58,7 +58,7 @@ coauthor/
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |---|---|
