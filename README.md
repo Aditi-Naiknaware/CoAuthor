@@ -81,7 +81,6 @@ coauthor/
 - Node.js 18+
 - An [OpenAI API key](https://platform.openai.com/account/api-keys)
 
-> 💡 **Free option**: You can swap GPT-3.5 Turbo for a free model. See [Free Alternatives](#-free-alternatives) below.
 
 ---
 
@@ -185,57 +184,6 @@ User text → FAISS similarity search → Top-3 chunks → LLM prompt → Sugges
 
 ---
 
-
-## Free Alternatives
-
-To run this project **completely free**, replace GPT-3.5 Turbo with one of these:
-
-### Option A: Google Gemini (Free Tier)
-
-```bash
-pip install langchain-google-genai
-```
-
-In `services/llm_service.py`, replace:
-```python
-from langchain_openai import ChatOpenAI
-self.llm = ChatOpenAI(model="gpt-3.5-turbo", ...)
-```
-
-With:
-```python
-from langchain_google_genai import ChatGoogleGenerativeAI
-self.llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
-```
-
-### Option B: Groq (Free Tier)
-
-```bash
-pip install langchain-groq
-```
-
-```python
-from langchain_groq import ChatGroq
-self.llm = ChatGroq(model="llama3-8b-8192", groq_api_key=os.getenv("GROQ_API_KEY"))
-```
-
-### Option C: Local Model via Ollama
-
-```bash
-# Install Ollama: https://ollama.com
-ollama pull llama3
-
-pip install langchain-ollama
-```
-
-```python
-from langchain_ollama import ChatOllama
-self.llm = ChatOllama(model="llama3")
-```
-
-> Note: For free alternatives, you can also replace OpenAI embeddings with `HuggingFaceEmbeddings` from `langchain-community` (no API key needed).
-
----
 
 ## ✨ Features
 
